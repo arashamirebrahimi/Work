@@ -1,0 +1,32 @@
+<h1> Sign Up</h1>
+
+<%= form_with model: @user, url:sign_up_path do |form| %>
+    <!--check your routes in rails routes 
+    password field makes charachters to dots
+    see forms in bootstrap for classes-->
+    <% if form.object.errors.any? %>
+        <div class = "alert alert-danger">
+            <%= form.object.errors.full_messages.each do |message| %>
+                <div><%= message %></div>
+            <% end %>
+        </div>
+    <% end %> 
+    <div class = "mb-3">
+        <%= form.label :email %>
+        <%= form.text_field :email, class:"form-control" , placeholder:"email" %>
+    </div>
+    <div class = "mb-3">
+        <%= form.label :password  %>
+        <%= form.password_field :password, class: "form-control", placeholder:"password" %>
+    </div>
+    <div class = "mb-3">
+        <%= form.label :passwod_confirmation %>    
+        <%= form.password_field :password_confirmation, class:"form-control", placeholder:"password confirmation" %>
+    </div>
+    <div>
+        <%= form.submit "Sign Up", class:"btn btn-primary" %>
+        <!--it can also take string in "" no = or : needed
+        needs text "" to use the bootstrap class-->
+
+    </div>
+<% end %>

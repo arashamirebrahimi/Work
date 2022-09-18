@@ -1,0 +1,16 @@
+Hi <%= params[:user].email %>
+
+Someone requested a reset of your password
+
+if this was you, click the link to reset your life....nah im joking its for the password...this deal will expire in 15 minutes 
+
+<%= link_to "Reset Password", password_reset_edit_url(token: @token) %>
+<!-- In mailers have to add _url instead of path
+  There is no link to in text version cause its not a html file 
+  
+  
+  this will result in an error of missing template if you not go to config/environments/development.rb
+  
+  and not add this line to it :
+  
+  config.action_mailer.default_url_options = { host: "localhost:3000"}-->
